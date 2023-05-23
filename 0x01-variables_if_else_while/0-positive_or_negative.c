@@ -6,8 +6,8 @@
  * main - To determine whether a number is positive or negative
  *
  * Return: 0 Always (Success)
- */  
- 
+ */
+
 int main(void)
 {
 	int n;
