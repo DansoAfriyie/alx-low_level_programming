@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * print_alphabet_x10 - A function that prints 10x the alphabet 
+ * print_alphabet_x10 - A function that prints 10x the alphabet
  * in lowercase
  *
  * Return: void
