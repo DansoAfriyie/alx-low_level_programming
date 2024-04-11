@@ -1,36 +1,35 @@
 #include <stdio.h>
-
 /**
- * main - prints the number from 1 - 100, but for mult of 3 & 5 print Fizz Buzz
+ * main - it  prints the numbers from 1 to 100,
+ * followed by a new line
  *
- * Return: Always 0 (Success)
-**/
+ * Return: Always 0
+ *
+ */
 
 int main(void)
 {
-	int i;
+	int num;
 
-	for (i = 1 ; i < 100 ; i++)
+	for (num = 1; num <= 100; num++)
 	{
-		if ((i % 3) == 0 && (i % 5) == 0)
-		{
-			printf("FizzBuzz ");
-		}
-		else if (i % 3 == 0)
-		{
-			printf("Fizz ");
-		}
-		else if (i % 5 == 0)
-		{
-			printf("Buzz ");
-		}
+		if ((num % 3) == 0 && (num % 5) == 0)
+			printf("FizzBuzz");
+
+		else if ((num % 3) == 0)
+			printf("Fizz");
+
+		else if ((num % 5) == 0)
+			printf("Buzz");
+
 		else
-		{
-		printf("%d ", i);
-		}
+			printf("%d", num);
+
+		if (num == 100)
+			continue;
+		printf(" ");
 	}
 
-	printf("Buzz");
 	printf("\n");
 
 	return (0);

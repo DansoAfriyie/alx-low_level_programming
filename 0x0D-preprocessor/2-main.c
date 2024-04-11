@@ -1,11 +1,11 @@
 #include <stdio.h>
-
 /**
- * main - Function to print file name with newline
- * Return: 0
+ * main - Print the name of the file it was compiled from
+ * Return: 0;
  */
 int main(void)
 {
 	printf("%s\n", __FILE__);
+
 	return (0);
 }

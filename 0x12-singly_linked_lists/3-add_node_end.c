@@ -1,52 +1,42 @@
+#include "lists.h"
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "lists.h"
-
 /**
- * add_node_end - Function to adda new node t end of a linked list
- * @head: double pointer to the list_t list
- * @str: string to put in the new node
- * Return: address of the new element, or NULL if it failed
+ * add_node_end - adds a node at the end of the linked list
+ * @head: pointer to the first node of the list
+ * @str: string to add
+ * Return: NULL if it fails / starting addr of the list
  */
 list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *new;
-	list_t *temp = *head;
+	list_t *new_node, *temp;
+	size_t str_len = 0;
 
-	/*Check for NULL arguments*/
-	if (head == NULL || str == NULL)
+	if (str == NULL)
+		str_len = 0;
+
+	while (str[str_len] != '\0')
+		str_len++;
+
+	new_node = malloc(sizeof(list_t));
+	if (new_node == NULL)
 		return (NULL);
 
-	/*Allocate memory for the new node*/
-	new = malloc(sizeof(list_t));
-	if (new == NULL)
-		return (NULL);
+	new_node->str = strdup(str);
+	new_node->len = str_len;
+	new_node->next = NULL;
 
-	/*Copy the string into the new node*/
-	new->str = strdup(str);
-	if (new->str == NULL)
-	{
-		/*Clean up if strdup fails*/
-		free(new);
-		return (NULL);
-	}
+	temp = *head;
 
-	/*set the length of the string and the next pointer*/
-	new->len = strlen(str);
-	new->next = NULL;
-
-	/*Add the node to the end of the list*/
-	if  (*head == NULL)
-	{
-		/*if the list is empty, set the head to the new node*/
-		*head = new;
-	}
+	if (temp == NULL)
+		*head = new_node;
 	else
 	{
 		while (temp->next != NULL)
 			temp = temp->next;
-
-		temp->next = new;
+		temp->next = new_node;
 	}
-	return (new);
+
+	return (*head);
 }

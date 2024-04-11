@@ -1,9 +1,7 @@
 #include <stdio.h>
-
 /**
- * main - A program to print a string is characters
- *
- * Return: Always 0 (Success)
+ * main - print a line of code using puts
+ * Return: Always 0
  */
 int main(void)
 {

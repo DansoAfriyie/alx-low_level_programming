@@ -1,9 +1,8 @@
 #include <stdio.h>
-
 /**
- * main - This program will print a string of characters
+ * main - print a c program using printf
  *
- * Return: Always 0 (Success)
+ * Return: 0
  */
 int main(void)
 {

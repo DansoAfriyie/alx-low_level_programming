@@ -1,20 +1,22 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /**
- * main - Prints alphabets in lowercase, all letters except q and e
+ * main - Prints the alphabet without q and e.
  *
- * Return: (success) 0
+ * Return: Always 0 (Success)
  */
-
 int main(void)
-
 {
-	char lower[24] = "abcdfghijklmnoprstuvwxyz";
-	int a;
+	int i;
 
-	for (a = 0; a < 24; a++)
+	for (i = 97; i < 123; i++)
 	{
-		putchar(lower[a]);
+		if (i != 101 && i != 113)
+		{
+			putchar(i);
+		}
 	}
 	putchar('\n');
 	return (0);

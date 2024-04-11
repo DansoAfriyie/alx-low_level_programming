@@ -1,44 +1,48 @@
 #include "main.h"
 #include <stdlib.h>
-#include <stdio.h>
 /**
- * str_concat - Fuction which concatenates two strings
- * @s1: first string to concatenate
- * @s2: second string to concatenate
- * Return: Pointer to a new string created (Sucess), or NULL (Error)
+ * *str_concat - concatenates two strings
+ * @s1: string to concatenate
+ * @s2: other string to concatenate
+ *
+ * Return: pointer to the new string created (Success), or NULL (Error)
  */
 char *str_concat(char *s1, char *s2)
 {
-	int i, x, len, len1, len2;
-	char *res;
+	char *A4;
+	unsigned int i = 0, j = 0, len1 = 0, len2 = 0;
 
-	len1 = len2 = 0;
+	while (s1 && s1[len1])
+		len1++;
+	while (s2 && s2[len2])
+		len2++;
 
-	if (s1 != NULL)
-	{
-		i = 0;
-		while (s1[i++] != '\0')
-			len1++;
-	}
-
-	if (s2 != NULL)
-	{
-		i = 0;
-		while (s2[i++] != '\0')
-			len2++;
-	}
-
-	len = len1 + len2;
-	res = (char *)malloc(sizeof(char) * (len + 1));
-	if (res == NULL)
+	A4 = malloc(sizeof(char) * (len1 + len2 + 1));
+	if (A4 == NULL)
 		return (NULL);
 
-	for (i = 0; i < len1; i++)
-		res[i] = s1[i];
+	i = 0;
+	j = 0;
 
-	for (x = 0; x < len2; x++, i++)
-		res[i] = s2[x];
-	res[len] = '\0';
+	if (s1)
+	{
+		while (i < len1)
+		{
+			A4[i] = s1[i];
+			i++;
+		}
+	}
 
-	return (res);
+	if (s2)
+	{
+		while (i < (len1 + len2))
+		{
+			A4[i] = s2[j];
+			i++;
+			j++;
+		}
+	}
+	A4[i] = '\0';
+
+	return (A4);
 }

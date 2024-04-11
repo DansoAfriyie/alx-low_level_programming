@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 /**
- * main - Printing all single numbers of base 10 starting from 0
+ * main - Prints numbers from 0 to 9.
  *
- * Return: (Success) 0 Always
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
@@ -13,8 +13,6 @@ int main(void)
 	{
 		printf("%d", i);
 	}
-
-	printf("\n");
+	putchar('\n');
 	return (0);
 }
-

@@ -1,12 +1,9 @@
 #include <stdio.h>
-
-void __attribute__ ((constructor))first(void);
-
 /**
- * first - Print a sentence befor the main
- * function is executed
+ * pre_main - Functions that run before main
+ * Return: nothing
  */
-void first(void)
+void __attribute__((constructor)) pre_main()
 {
 	printf("You're beat! and yet, you must allow,\n");
 	printf("I bore my house upon my back!\n");

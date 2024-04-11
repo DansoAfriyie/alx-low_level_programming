@@ -1,18 +1,17 @@
 #include <stdio.h>
 
 /**
- * main - This program rints all single digit numbers of base 10 wit putchar
+ * main - Prints numbers from 0 to 9.
  *
- * Return: Always 0 (success)
+ * Return: Always 0 (Success)
  */
 int main(void)
-
 {
-	int n;
+	int i;
 
-	for (n = 48; n < 58; n++)
+	for (i = 48; i < 58; i++)
 	{
-		putchar(n);
+		putchar(i);
 	}
 	putchar('\n');
 	return (0);

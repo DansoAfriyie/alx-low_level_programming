@@ -1,10 +1,14 @@
 #include "main.h"
-
 /**
- * get_endianness - Checks the endiannes of this system
- * Return: 0 if big endian, 1 if little endian
+ * get_endianness - checks if multibyte data is the endianness.
+ * Return: If big-endian - 0, if little-endian -1.
  */
 int get_endianness(void)
 {
-	return (5 << 8 == 0 ? 0 : 1);
+	int numb = 1;
+	char *endiann = (char *)&numb;
+
+	if (*endiann == 1)
+		return (1);
+	return (1);
 }

@@ -1,39 +1,44 @@
 #include "main.h"
 #include <stdlib.h>
-
 /**
- * alloc_grid - Function that returns a pointer
- * to a 2 dimensional array of integers
- * @width: width of array
- * @height: height of array
- * Return: A pointer to two dimensional array of integers
+ * **alloc_grid - creates a two dimensional array of ints
+ * @width: width of the matrix
+ * @height: height of the matrix
+ *
+ * Return: pointer to the created matrix (Success)
+ * or NULL (Error)
  */
 int **alloc_grid(int width, int height)
 {
-	int **arr, i, x;
-	int area = width * height;
+	int **ali;
+	int b, g;
 
-	if (area <= 0)
+	if (height <= 0 || width <= 0)
 		return (NULL);
 
-	arr = (int **)malloc(sizeof(int *) * height);
-	if (arr == NULL)
+	ali = (int **) malloc(sizeof(int *) * height);
+
+	if (ali == NULL)
 		return (NULL);
 
-	for (i = 0; i < height; i++)
+	for (b = 0; b < height; b++)
 	{
-		arr[i] = (int *)malloc(sizeof(int) * width);
-		if (arr[i] == NULL)
+		ali[b] = (int *) malloc(sizeof(int) * width);
+		if (ali[b] == NULL)
 		{
-			for (i--; i >= 0; i--)
-				free(arr[i]);
-			free(arr);
+			free(ali);
+			for (g = 0; g <= b; g++)
+				free(ali[g]);
 			return (NULL);
 		}
 	}
 
-	for (i = 0; i < height; i++)
-		for (x = 0; x < width; x++)
-			arr[i][x] = 0;
-	return (arr);
+	for (b = 0; b < height; b++)
+	{
+		for (g = 0; g < width; g++)
+		{
+			ali[b][g] = 0;
+		}
+	}
+	return (ali);
 }

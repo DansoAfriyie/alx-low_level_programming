@@ -1,9 +1,10 @@
 #include "3-calc.h"
-
+#include <stddef.h>
 /**
- * get_op_func - select the correct operation function asked by user
- * @s: operatior argument
- * Return: function pointer corresponding to operator given
+ * get_op_func - get ops function pointer of type char array
+ *               that accepts two inputs of int data type
+ * @s: a character pointer pointing to a symbol from the program argument
+ * Return: one of the operator functions to perform calculations
  */
 int (*get_op_func(char *s))(int, int)
 {
@@ -15,15 +16,14 @@ int (*get_op_func(char *s))(int, int)
 		{"%", op_mod},
 		{NULL, NULL}
 	};
-	int i;
-
-	i = 0;
+	int i = 0;
 
 	while (i < 5)
 	{
-		if (ops[i].op[0] == s[0])
+		if (*s == *ops[i].op)
 			return (ops[i].f);
 		i++;
 	}
+
 	return (NULL);
 }
